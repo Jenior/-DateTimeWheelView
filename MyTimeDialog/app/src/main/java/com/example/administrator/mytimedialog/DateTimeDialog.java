@@ -67,18 +67,6 @@ public class DateTimeDialog extends Dialog implements View.OnClickListener {
         wmlp.gravity = Gravity.BOTTOM;
         getWindow().setAttributes(wmlp); // 底部显示
         getWindow().setWindowAnimations(R.style.date_dialog_animstyle); // 启动关闭动画
-        this.setOnShowListener(new OnShowListener() {
-
-            @Override
-            public void onShow(DialogInterface dialog) {
-                // TODO Auto-generated method stub
-
-                if (isFirst) {
-
-                    isFirst = false;
-                }
-            }
-        });
         findViewById(R.id.tv_cancel).setOnClickListener(this);
         findViewById(R.id.tv_ok).setOnClickListener(this);
         handler = new Handler() {
@@ -200,15 +188,6 @@ public class DateTimeDialog extends Dialog implements View.OnClickListener {
         wvMonth = (MyWheelView) findViewById(R.id.wv_month);
         wvDay = (MyWheelView) findViewById(R.id.wv_day);
         wvHour = (MyWheelView) findViewById(R.id.wv_hour);
-        wvYear.setOnTouchListener(new OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
-                return true;
-            }
-        });
-
         wvYear.setItems(listYear);
         wvMonth.setItems(listMonth);
         wvDay.setItems(listDay);
